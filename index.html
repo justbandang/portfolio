@@ -105,9 +105,6 @@
 				============================================= -->
 				<div id="portfolio" class="portfolio row grid-container portfolio-reveal no-gutters portfolio-container" data-layout="fitRows">
 
-					<!-- Portfolio Item: Start -->
-					
-
 				</div><!-- #portfolio end -->
 
 				<a href="#" class="button button-full center button-light button-white">
@@ -154,55 +151,6 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>
-	<script>
-		async function loadPortfolioData() {
-    try {
-        // Ganti 'data.json' dengan path file JSON Anda
-        const response = await fetch('data.json');
-        const data = await response.json();
-
-        const portfolioContainer = document.querySelector('.portfolio-container'); // Ganti dengan container portfolio Anda
-
-        data.forEach(item => {
-            const portfolioItem = document.createElement('article');
-            portfolioItem.className = 'portfolio-item col-12 col-sm-6 col-md-4 pf-media pf-icons';
-
-            portfolioItem.innerHTML = `
-                <div class="grid-inner">
-                    <div class="portfolio-image">
-                        <a href="${item.portfolioSingleLink}">
-                            <img src="${item.imageSrc}" alt="${item.imageAlt}">
-                        </a>
-                        <div class="bg-overlay">
-                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
-                                <a href="${item.fullImageLink}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" data-hover-parent=".portfolio-item" data-lightbox="image" title="Image">
-                                    <i class="icon-line-plus"></i>
-                                </a>
-                                <a href="${item.portfolioSingleLink}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" data-hover-parent=".portfolio-item">
-                                    <i class="icon-line-ellipsis"></i>
-                                </a>
-                            </div>
-                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
-                        </div>
-                    </div>
-                    <div class="portfolio-desc">
-                        <h3><a href="${item.portfolioSingleLink}">${item.title}</a></h3>
-                        <span><a href="${item.categoryLink}">${item.category}</a></span>
-                    </div>
-                </div>
-            `;
-
-            portfolioContainer.appendChild(portfolioItem);
-        });
-
-    } catch (error) {
-        console.error('Error loading portfolio data:', error);
-    }
-}
-
-// Jalankan fungsi
-loadPortfolioData();
-	</script>
 
 	<!-- Portfolio Script
 	============================================= -->
